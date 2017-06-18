@@ -19,13 +19,18 @@ from rest_framework import routers
 
 from account import views
 from rest_framework.authtoken.views import obtain_auth_token
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 
 
 urlpatterns = [
+
     url(r'^admin/', admin.site.urls),
     url(r'^login/', obtain_auth_token),
     url(r'^', include(router.urls)),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

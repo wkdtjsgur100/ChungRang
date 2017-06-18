@@ -87,7 +87,10 @@ class SignUpPage extends Component {
                     <Modal.Actions>
                         <Button
                             color="green"
-                            onClick={() => this.setState({modalOpen: false}) }>
+                            onClick={() => {
+                                if(this.props.isSucceeded)
+                                    this.props.history.push('/login');
+                                this.setState({modalOpen: false}) }}>
                             <Icon name='checkmark' /> 확인
                         </Button>
                     </Modal.Actions>

@@ -8,11 +8,11 @@ import {logout} from '../../ducks/Login';
 const ButtonOnNavbar = ({handleClick,children}) => (
     <Button
         onClick={handleClick}
+        inverted
+        color='green'
         style={{
-            backgroundColor: '#ffffff',
-            color: '#9b9b9b',
             width: '115px',
-            height: '60px'
+            margin: '20px',
         }}>
         {children}
     </Button>
@@ -26,11 +26,11 @@ const Navbar = ({history, loggedIn, logout}) => (
             (loggedIn) ?
                 (<ButtonOnNavbar
                     handleClick={logout}>
-                    로그아웃
+                    Log out
                 </ButtonOnNavbar>) :
                 (<ButtonOnNavbar
                     handleClick={() => history.push('/login')}>
-                    로그인
+                    Log in
                 </ButtonOnNavbar>)
         }
     </Container>
